@@ -114,8 +114,8 @@ prevButton.addEventListener("click", playPrevSong);
 
 // Hiển thị/Ẩn thanh âm lượng khi nhấn vào loa
 const volumeIcon = document.getElementById("volume-icon");
-const volumeContainer = document.getElementById("volume-container");
+const volumePopup = document.getElementById("volume-popup");
 
 volumeIcon.addEventListener("click", () => {
-    volumeContainer.classList.toggle("show"); // Lớp CSS 'show' sẽ hiện thanh âm lượng
+    volumePopup.classList.toggle("show");
 });

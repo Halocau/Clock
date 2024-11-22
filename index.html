@@ -21,12 +21,13 @@
             Your browser does not support the audio element.
         </audio>
 
-        <!-- Biểu tượng loa -->
-        <button id="volume-icon" class="control-btn">🔊</button>
-
-        <!-- Thanh popup âm lượng -->
-        <div class="volume-popup" id="volume-popup">
-            <input type="range" id="volume-slider" min="0" max="100" value="100" class="volume-slider">
+        <!-- Biểu tượng loa và thanh âm lượng -->
+        <div id="volume-container" class="volume-container">
+            <button id="volume-icon" class="control-btn">🔊</button>
+            <!-- Thanh popup âm lượng -->
+            <div class="volume-popup" id="volume-popup">
+                <input type="range" id="volume-slider" min="0" max="100" value="100" class="volume-slider">
+            </div>
         </div>
 
         <!-- Thanh tiến trình -->
