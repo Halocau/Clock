@@ -9,7 +9,8 @@ body {
     font-family: 'Orbitron', sans-serif;
     color: #00ffcc;
     background: url('./image.png') no-repeat center center/cover;
-    background-size: cover; /* Giữ ảnh nền cố định */
+    background-size: cover;
+    flex-direction: column;
 }
 
 /* Container đồng hồ */
@@ -24,31 +25,10 @@ body {
     position: relative;
     box-shadow: 0 0 50px rgba(0, 255, 204, 0.8);
     overflow: hidden;
+    margin-bottom: 20px;
 }
 
-/* Vòng viền sáng LED xoay quanh đồng hồ */
-.clock-ring {
-    position: absolute;
-    width: 130%;
-    height: 130%;
-    border: 5px solid #00ffcc;
-    border-radius: 50%;
-    animation: rotateRing 5s infinite linear;
-    box-shadow: 0 0 15px rgba(0, 255, 204, 0.8);
-    z-index: -1; /* Đảm bảo vòng xoay không che phủ đồng hồ */
-}
-
-/* Hiệu ứng vòng viền xoay */
-@keyframes rotateRing {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-/* Đồng hồ với hiệu ứng ánh sáng công nghệ */
+/* Đồng hồ */
 #clock {
     font-size: 72px;
     font-weight: bold;
@@ -57,15 +37,115 @@ body {
     animation: neonGlow 1.5s ease-in-out infinite alternate;
 }
 
-/* Hiệu ứng sáng lên nhấp nháy */
 @keyframes neonGlow {
     0% {
         text-shadow: 0 0 20px rgba(0, 255, 204, 0.8), 0 0 30px rgba(0, 255, 204, 0.5), 0 0 50px rgba(0, 255, 204, 0.7);
     }
+
     50% {
         text-shadow: 0 0 10px rgba(0, 255, 204, 0.8), 0 0 20px rgba(0, 255, 204, 0.5), 0 0 40px rgba(0, 255, 204, 0.7);
     }
+
     100% {
         text-shadow: 0 0 5px rgba(0, 255, 204, 0.8), 0 0 10px rgba(0, 255, 204, 0.5), 0 0 20px rgba(0, 255, 204, 0.7);
     }
+}
+
+/* Music Container */
+.music-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Music Control Bar */
+.music-control-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.8);
+}
+
+/* Biểu tượng loa */
+#volume-icon {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #00ffcc;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+/* Thanh trượt âm lượng */
+.volume-slider {
+    width: 150px;
+    margin-right: 20px;
+    cursor: pointer;
+    background: #00ffcc;
+    outline: none;
+}
+
+/* Nút điều khiển nhạc */
+.control-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.control-btn {
+    background-color: transparent;
+    color: #00ffcc;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.control-btn:hover {
+    color: #00cc99;
+    transform: scale(1.2);
+}
+
+/* Container thanh tiến trình */
+.progress-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+#current-time,
+#total-duration {
+    font-size: 14px;
+    color: #00ffcc;
+}
+
+/* Thanh tiến trình */
+.progress-bar {
+    flex: 1;
+    cursor: pointer;
+    appearance: none;
+    height: 5px;
+    background: rgba(0, 255, 204, 0.5);
+    border-radius: 5px;
+    outline: none;
+}
+
+.progress-bar::-webkit-slider-thumb {
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    background: #00ffcc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.progress-bar::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    background: #00ffcc;
+    border-radius: 50%;
+    cursor: pointer;
 }
