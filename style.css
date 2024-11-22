@@ -1,0 +1,71 @@
+/* Toàn bộ trang */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Orbitron', sans-serif;
+    color: #00ffcc;
+    background: url('./image.png') no-repeat center center/cover;
+    background-size: cover; /* Giữ ảnh nền cố định */
+}
+
+/* Container đồng hồ */
+.clock-container {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 0 50px rgba(0, 255, 204, 0.8);
+    overflow: hidden;
+}
+
+/* Vòng viền sáng LED xoay quanh đồng hồ */
+.clock-ring {
+    position: absolute;
+    width: 130%;
+    height: 130%;
+    border: 5px solid #00ffcc;
+    border-radius: 50%;
+    animation: rotateRing 5s infinite linear;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.8);
+    z-index: -1; /* Đảm bảo vòng xoay không che phủ đồng hồ */
+}
+
+/* Hiệu ứng vòng viền xoay */
+@keyframes rotateRing {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Đồng hồ với hiệu ứng ánh sáng công nghệ */
+#clock {
+    font-size: 72px;
+    font-weight: bold;
+    color: #00ffcc;
+    text-shadow: 0 0 20px rgba(0, 255, 204, 0.8), 0 0 30px rgba(0, 255, 204, 0.5), 0 0 50px rgba(0, 255, 204, 0.7);
+    animation: neonGlow 1.5s ease-in-out infinite alternate;
+}
+
+/* Hiệu ứng sáng lên nhấp nháy */
+@keyframes neonGlow {
+    0% {
+        text-shadow: 0 0 20px rgba(0, 255, 204, 0.8), 0 0 30px rgba(0, 255, 204, 0.5), 0 0 50px rgba(0, 255, 204, 0.7);
+    }
+    50% {
+        text-shadow: 0 0 10px rgba(0, 255, 204, 0.8), 0 0 20px rgba(0, 255, 204, 0.5), 0 0 40px rgba(0, 255, 204, 0.7);
+    }
+    100% {
+        text-shadow: 0 0 5px rgba(0, 255, 204, 0.8), 0 0 10px rgba(0, 255, 204, 0.5), 0 0 20px rgba(0, 255, 204, 0.7);
+    }
+}
