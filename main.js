@@ -14,6 +14,8 @@ const totalDurationEl = document.getElementById("total-duration");
 const nextButton = document.getElementById("next");
 const prevButton = document.getElementById("prev");
 const repeatButton = document.getElementById("repeat");
+const volumeIcon = document.getElementById("volume-icon");
+const volumePopup = document.getElementById("volume-popup");
 
 // Đồng hồ thời gian
 function updateClock() {
@@ -37,13 +39,14 @@ function toggleMusic() {
 }
 playPauseButton.addEventListener("click", toggleMusic);
 
-// Cập nhật thanh tiến trình và thời gian
+// Định dạng thời gian
 function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = Math.floor(seconds % 60);
     return `${String(minutes).padStart(2, "0")}:${String(remainingSeconds).padStart(2, "0")}`;
 }
 
+// Cập nhật thanh tiến trình và thời gian
 function updateProgress() {
     const currentTime = music.currentTime;
     const duration = music.duration;
@@ -75,6 +78,8 @@ function playNextSong() {
     playPauseButton.textContent = "⏸️";
 }
 
+nextButton.addEventListener("click", playNextSong);
+
 // Phát bài hát trước đó
 function playPrevSong() {
     currentSongIndex = (currentSongIndex - 1 + playlist.length) % playlist.length;
@@ -82,6 +87,8 @@ function playPrevSong() {
     music.play();
     playPauseButton.textContent = "⏸️";
 }
+
+prevButton.addEventListener("click", playPrevSong);
 
 // Tải bài hát mới
 function loadSong() {
@@ -108,14 +115,7 @@ music.addEventListener("ended", () => {
     }
 });
 
-// Gán sự kiện cho nút Next và Previous
-nextButton.addEventListener("click", playNextSong);
-prevButton.addEventListener("click", playPrevSong);
-
 // Hiển thị/Ẩn thanh âm lượng khi nhấn vào loa
-const volumeIcon = document.getElementById("volume-icon");
-const volumePopup = document.getElementById("volume-popup");
-
 volumeIcon.addEventListener("click", () => {
     volumePopup.classList.toggle("show");
 });

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Player with Volume Popup</title>
+    <title>Music Player with Custom Control Bar</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -21,15 +21,6 @@
             Your browser does not support the audio element.
         </audio>
 
-        <!-- Biểu tượng loa và thanh âm lượng -->
-        <div id="volume-container" class="volume-container">
-            <button id="volume-icon" class="control-btn">🔊</button>
-            <!-- Thanh popup âm lượng -->
-            <div class="volume-popup" id="volume-popup">
-                <input type="range" id="volume-slider" min="0" max="100" value="100" class="volume-slider">
-            </div>
-        </div>
-
         <!-- Thanh tiến trình -->
         <div class="progress-container">
             <span id="current-time">00:00</span>
@@ -39,7 +30,13 @@
 
         <!-- Các nút điều khiển -->
         <div class="control-buttons">
-            <button id="shuffle" class="control-btn">🔀</button>
+            <div id="volume-container" class="volume-container">
+                <button id="volume-icon" class="control-btn">🔊</button>
+                <!-- Thanh popup âm lượng -->
+                <div class="volume-popup" id="volume-popup">
+                    <input type="range" id="volume-slider" min="0" max="100" value="100" class="volume-slider">
+                </div>
+            </div>
             <button id="prev" class="control-btn">⏮️</button>
             <button id="play-pause" class="control-btn">⏸️</button>
             <button id="next" class="control-btn">⏭️</button>
