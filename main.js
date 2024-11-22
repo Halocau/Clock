@@ -16,6 +16,8 @@ const prevButton = document.getElementById("prev");
 const repeatButton = document.getElementById("repeat");
 const volumeIcon = document.getElementById("volume-icon");
 const volumePopup = document.getElementById("volume-popup");
+const clock = document.getElementById("clock");
+const clockContainer = document.querySelector(".clock-container");
 
 // Đồng hồ thời gian
 function updateClock() {
@@ -23,7 +25,7 @@ function updateClock() {
     const hours = String(now.getHours()).padStart(2, "0");
     const minutes = String(now.getMinutes()).padStart(2, "0");
     const seconds = String(now.getSeconds()).padStart(2, "0");
-    document.getElementById("clock").innerHTML = `${hours}:${minutes}:${seconds}`;
+    clock.innerHTML = `${hours}:${minutes}:${seconds}`;
 }
 setInterval(updateClock, 1000);
 
@@ -119,3 +121,16 @@ music.addEventListener("ended", () => {
 volumeIcon.addEventListener("click", () => {
     volumePopup.classList.toggle("show");
 });
+
+// Heartbeat effect
+function heartbeatEffect() {
+    if (!music.paused) {
+        clockContainer.classList.add("heartbeat");
+    } else {
+        clockContainer.classList.remove("heartbeat");
+    }
+    requestAnimationFrame(heartbeatEffect);
+}
+
+// Bắt đầu hiệu ứng heartbeat
+heartbeatEffect();

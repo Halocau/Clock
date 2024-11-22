@@ -162,3 +162,23 @@ body {
     background: #00ffcc;
     outline: none;
 }
+/* Existing styles ... */
+
+/* Shaking animation */
+@keyframes shake {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(2px, -2px); }
+    50% { transform: translate(-2px, 2px); }
+    75% { transform: translate(2px, 2px); }
+}
+
+/* Morphing animation */
+@keyframes morph {
+    0%, 100% { border-radius: 50%; }
+    50% { border-radius: 20%; }
+}
+
+/* Apply shaking and morphing animations to the clock container */
+.clock-container.heartbeat {
+    animation: shake 0.5s infinite, morph 1s infinite;
+}
